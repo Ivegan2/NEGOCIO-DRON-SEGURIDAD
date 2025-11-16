@@ -1,116 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dronex Security</title>
-<link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0b1117" />
+<title>Dronex Security — Vigilancia Inteligente</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<!-- ===== ENCABEZADO ===== -->
-<header>
-    <div class="logo">
-    <img src="img/logo.png" alt="Logo Dronex Security">
-    <h1>Dronex Security</h1>
-    
+
+<!-- Skip link para accesibilidad -->
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<!-- HEADER -->
+<header class="site-header" role="banner">
+    <div class="container header-inner">
+    <div class="brand">
+        <a href="#inicio" class="brand-link" aria-label="Ir al inicio">
+        <img src="img/logo.png" alt="Logo Dronex Security" class="brand-logo" />
+        <span class="brand-title">Dronex Security</span>
+        </a>
     </div>
 
-    <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#productos">Productos</a>
-    <a href="#contacto">Contacto</a>
+    <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav id="mainNav" class="main-nav" role="navigation" aria-label="Menú principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
     </nav>
 
-    <!-- Interruptor de modo claro/oscuro -->
-    <div class="modo-toggle">
-    <input type="checkbox" id="modoSwitch">
-    <label for="modoSwitch">🌙</label>
+    <div class="controls">
+        <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Cambiar modo claro/oscuro">🌙</button>
+    </div>
     </div>
 </header>
 
-<!-- ===== SECCIÓN HERO ===== -->
-<section id="inicio" class="hero">
-    <div class="hero-texto fade-in">
-    <h2>Seguridad Aérea Inteligente</h2>
-    <p>Soluciones con drones equipados con IA,<P>
-    </P>Reconocimiento facial y análisis perimetral en zonas Urbanas y Empresariales.</p>
-    <a href="#servicios" class="btn-principal">Descubrir más</a>
+<!-- MAIN -->
+<main id="main" tabindex="-1">
+    <!-- HERO -->
+    <section id="inicio" class="hero section--large">
+    <div class="container hero-inner fade-in">
+        <h1>Seguridad aérea inteligente</h1>
+        <p>Soluciones con drones equipados con IA, reconocimiento facial (configurable) y análisis perimetral para conjuntos residenciales y espacios corporativos.</p>
+        <p class="hero-cta"><a class="btn btn-primary" href="#contacto">Solicitar demo</a></p>
     </div>
-</section>
+    </section>
 
-<!-- ===== SERVICIOS ===== -->
-<section id="servicios" class="servicios slide-up">
-    <h2>Nuestros Servicios</h2>
-    <div class="servicios-grid">
-    <div class="servicio">
-    <h3>Vigilancia Perimetral</h3>
-    <p>Monitoreo 24/7 con drones autónomos y análisis de intrusiones en tiempo real.</p>
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section servicios">
+    <div class="container">
+        <h2 class="section-title slide-up">Nuestros servicios</h2>
+        <div class="grid servicios-grid">
+        <article class="card slide-up" aria-labelledby="s1">
+            <h3 id="s1">Vigilancia Perimetral</h3>
+            <p>Patrullaje automatizado con alertas en tiempo real y rutas geocercadas.</p>
+        </article>
+
+        <article class="card slide-up" aria-labelledby="s2">
+            <h3 id="s2">Reconocimiento Seguro</h3>
+            <p>Identificación bajo políticas de privacidad y almacenamiento cifrado.</p>
+        </article>
+
+        <article class="card slide-up" aria-labelledby="s3">
+            <h3 id="s3">Integración Corporativa</h3>
+            <p>Conexión con CCTV, centros de control y protocolos de respuesta.</p>
+        </article>
+        </div>
     </div>
-    <div class="servicio">
-    <h3>Reconocimiento Facial</h3>
-    <p>Identificación precisa de individuos en áreas restringidas mediante IA avanzada.</p>
+    </section>
+
+    <!-- PRODUCTOS (GRID, no carrusel) -->
+    <section id="productos" class="section productos">
+    <div class="container">
+        <h2 class="section-title fade-in">Nuestros drones</h2>
+        <div class="grid productos-grid">
+        <article class="producto card slide-up" aria-labelledby="p1">
+            <img src="img/productos/drone1.jpg" alt="Drone Guardian X1" loading="lazy">
+            <h3 id="p1">Guardian X1</h3>
+            <p>Patrullaje autónomo y detección avanzada.</p>
+        </article>
+
+        <article class="producto card slide-up" aria-labelledby="p2">
+            <img src="img/productos/drone2.jpg" alt="Drone Sentinel Pro" loading="lazy">
+            <h3 id="p2">Sentinel Pro</h3>
+            <p>Rango extendido y visión nocturna.</p>
+        </article>
+
+        <article class="producto card slide-up" aria-labelledby="p3">
+            <img src="img/productos/drone3.jpg" alt="Drone Hawk Vision" loading="lazy">
+            <h3 id="p3">Hawk Vision</h3>
+            <p>Análisis térmico y detección de anomalías.</p>
+        </article>
+
+        <article class="producto card slide-up" aria-labelledby="p4">
+            <img src="img/productos/drone4.jpg" alt="Hunter One Autónomo" loading="lazy">
+            <h3 id="p4">Hunter One</h3>
+            <p>Búsqueda y monitoreo autónomo para entornos complejos.</p>
+        </article>
+        </div>
+    </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section contacto">
+    <div class="container">
+        <h2 class="section-title fade-in">Contáctanos</h2>
+
+        <form id="contactForm" class="contact-form slide-up" novalidate>
+        <div class="form-row">
+            <label for="name">Nombre completo</label>
+            <input id="name" name="name" type="text" required aria-required="true">
+        </div>
+
+        <div class="form-row">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" required aria-required="true">
+        </div>
+
+        <div class="form-row">
+            <label for="phone">Teléfono</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" pattern="[0-9()+\\-\\s]{7,25}">
+        </div>
+
+        <div class="form-row">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+            <button class="btn btn-ghost" type="reset">Limpiar</button>
+        </div>
+
+        <p id="formFeedback" class="form-feedback" role="status" aria-live="polite"></p>
+        </form>
+    </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+    <div class="footer-social" aria-label="Redes sociales">
+        <a href="#" class="icon-link" aria-label="Facebook"><img src="img/icon-facebook.png" alt=""></a>
+        <a href="#" class="icon-link" aria-label="Instagram"><img src="img/icon-instagram.png" alt=""></a>
+        <a href="#" class="icon-link" aria-label="LinkedIn"><img src="img/icon-linkedin.png" alt=""></a>
+    </div>
+    <p class="copyright">© 2025 Dronex Security — Todos los derechos reservados</p>
 </div>
-<div class="servicio">
-    <h3>Entornos Seguros</h3>
-    <p>Supervisión aérea y alerta inmediata ante comportamientos inusuales.</p>
-</div>
-    </div>
-</section>
-
-<!-- ===== SLIDER DE PRODUCTOS ===== -->
-<section id="productos" class="productos fade-in">
-    <h2>Nuestros Drones</h2>
-    <div class="slider-container">
-    <div class="slider">
-        <div class="slide slide-up">
-        <img src="img/productos/drone1.jpg" alt="Drone de vigilancia avanzada">
-        <h3>Guardian X1</h3>
-        <p>Reconocimiento facial y patrullaje autónomo.</p>
-        </div>
-        <div class="slide slide-up">
-        <img src="img/productos/drone2.jpg" alt="Drone táctico de seguridad">
-        <h3>Sentinel Pro</h3>
-        <p>Vigilancia de perímetros amplios con visión nocturna.</p>
-        </div>
-        <div class="slide slide-up">
-        <img src="img/productos/drone3.jpg" alt="Drone de alta precisión">
-        <h3>Hawk Vision</h3>
-        <p>Análisis térmico y detección de movimiento.</p>
-        </div>
-        <div class="slide slide-up">
-        <img src="img/productos/drone4.jpg" alt="Drone compacto de seguridad Autonomo">
-        <h3>Hunter One</h3>
-        <p>Busqueda, vigilancia y monitoreo Autonomo.</p>
-    </div>
-    </div>
-    </div>
-</section>
-
-<!-- ===== CONTACTO ===== -->
-<section id="contacto" class="contacto fade-in">
-    <h2>Contáctanos</h2>
-    <p>¿Deseas fortalecer la seguridad de tu entorno con tecnología de vanguardia?</p>
-    <a href="mailto:info@dronexsecurity.com" class="btn-secundario">Escríbenos</a>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-    <div class="redes">
-    <h3>Conéctate con nosotros</h3>
-    <div class="iconos-redes">
-    <a href="#" class="icono"><img src="img/icon-facebook.png" alt="Facebook"></a>
-    <a href="#" class="icono"><img src="img/icon-instagram.png" alt="Instagram"></a>
-    <a href="#" class="icono"><img src="img/icon-linkedin.png" alt="LinkedIn"></a>
-    </div>
-    </div>
-    <p>Vigilancia y Seguridad Avanzada</p>
-    <P>© 2025 Dronex Security</P>
 </footer>
 
-<!-- ===== BOTÓN ROLL BACK ===== -->
-<button id="btnTop" title="Volver arriba">↑↑↑</button>
+<!-- BOTÓN VOLVER ARRIBA -->
+<button id="btnTop" class="back-to-top" aria-label="Volver arriba">↑</button>
 
-<script src="js/animaciones.js"></script>
+<!-- SCRIPTS -->
+<script src="js/animaciones.js" defer></script>
 </body>
 </html>

@@ -1,301 +1,147 @@
-/* ===== ESTILOS GENERALES ===== */
-body {
-margin: 0;
-font-family: "Segoe UI", sans-serif;
-background-color: #0d1117;
-color: #e0e6ed;
+/* =============== BASE =============== */
+:root{
+--bg-dark: #0e141a;
+--panel-dark: #121722;
+--muted: #9fb6cf;
+--accent: #00aaff;
+--card: #17202a;
+
+--bg-light: #fafbfd;
+--panel-light: #ffffff;
+--muted-light: #4b5563;
+--accent-light: #0077cc;
+--card-light: #f3f6fb;
 }
 
-h1, h2, h3 {
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+margin:0;
+font-family: "Segoe UI", Roboto, Arial, sans-serif;
+background:var(--bg-dark);
+color: #e6f1fb;
+-webkit-font-smoothing:antialiased;
+transition: background .45s ease, color .45s ease;
+}
+
+h2, h3 {
 color: #00b3ff;
 text-align: center;
 }
 
-a {
-text-decoration: none;
-color: inherit;
+.container{
+width:min(1100px, 92%);
+margin:0 auto;
 }
 
-/* ===== ENCABEZADO ===== */
-header {
-background-color: #141c24;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1rem 3rem;
-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+/* Skip link */
+.skip-link{
+position:absolute;
+left:-999px;
+top:auto;
+width:1px;height:1px;
+overflow:hidden;
+}
+.skip-link:focus{
+left:10px; top:10px; width:auto; height:auto; padding:.5rem 1rem;
+background:#fff; color:#000; z-index:9999; border-radius:6px;
 }
 
-.logo {
-display: flex;
-align-items: center;
-gap: 100px;
+/* =============== HEADER =============== */
+.site-header{
+background:var(--panel-dark);
+position:sticky;top:0;z-index:50;
+box-shadow:0 6px 18px rgba(0,0,0,.45);
+transition: background .45s ease;
 }
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 
-.logo img {
-width: 200px;
-height: 200px;
+.brand-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand-logo{width:60px;height:auto;border-radius:8px}
+.brand-title{font-size:1.05rem;font-weight:700;color:var(--accent)}
+
+.menu-btn{
+display:none;
+background:transparent;border:0;padding:10px;cursor:pointer;
 }
+.menu-btn span{display:block;width:22px;height:2px;background:var(--muted);margin:4px 0;transition:all .25s ease}
 
-nav a {
-margin: 0 15px;
-color: #cdd9e5;
-font-weight: 500;
+/* NAVEGACION */
+.main-nav{display:flex;gap:18px;align-items:center}
+.main-nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px 6px;border-radius:6px;transition:color .25s, background .25s}
+.main-nav a:hover{color:var(--accent);background:rgba(255,255,255,0.02)}
+
+/* TEMA TOGGLE */
+.theme-toggle{background:transparent;border:0;color:var(--muted);font-size:1.2rem;cursor:pointer;padding:8px 6px;border-radius:6px}
+.theme-toggle:focus{outline:2px solid rgba(0,170,255,.25)}
+
+/* =============== HERO =============== */
+.hero{display:flex;align-items:center;min-height:68vh;background-image:linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.45)), url('../img/hero.jpg');background-size:cover;background-position:center;padding:60px 0}
+.hero-inner{max-width:720px}
+.hero h1{font-size:2.25rem;margin:0 0 .6rem}
+.hero p{font-size:1.05rem;color:rgba(230,241,251,.9);margin-bottom:1rem}
+.hero-cta .btn{margin-top:8px}
+
+/* =============== SECCIONES =============== */
+.section{padding:56px 0}
+.section-title{font-size:1.6rem;margin-bottom:18px;color:var(--accent)}
+
+/* GRILLA */
+.grid{display:grid;gap:18px}
+.servicios-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:start}
+.productos-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:start}
+
+/* TARJETAS */
+.card{text-align: center; background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:transform .35s ease, box-shadow .35s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(0,0,0,.45)}
+.producto img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+
+/* FORM */
+.contact-form{display:flex;flex-direction:column;gap:12px;max-width:700px;margin:0 auto}
+.form-row label{display:block;font-weight:600;margin-bottom:6px}
+.form-row input,.form-row textarea{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;color:inherit;transition:background .25s, border-color .25s}
+.form-row input:focus,.form-row textarea:focus{outline:none;border-color:rgba(0,170,255,.6);background:rgba(255,255,255,0.02)}
+.form-actions{display:flex;gap:12px;align-items:center}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.05);padding:9px 14px}
+
+/* FEEDBACK */
+.form-feedback{color:#bfeaff;margin-top:8px}
+
+/* BACK TO TOP */
+.back-to-top{position:fixed;right:20px;bottom:20px;background:var(--accent);color:#fff;border:0;padding:10px;border-radius:8px;cursor:pointer;display:none;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+
+/* FOOTER */
+.site-footer{background:var(--panel-dark);padding:28px 0;margin-top:40px;color:var(--muted)}
+.footer-inner{display:flex;flex-direction:column;align-items:center;gap:12px}
+
+/* ICONS */
+.icon-link img{width:34px;opacity:.95;filter:drop-shadow(0 6px 16px rgba(0,0,0,.45));transition:transform .25s}
+.icon-link img:hover{transform:translateY(-4px)}
+
+/* =============== LIGHT MODE OVERRIDES =============== */
+body.light-mode{
+background:var(--bg-light);
+color:var(--muted-light);
 }
+body.light-mode .site-header{background:var(--panel-light)}
+body.light-mode .brand-title{color:var(--accent-light)}
+body.light-mode .main-nav a{color:var(--muted-light)}
+body.light-mode .card{background:var(--card-light);box-shadow:0 6px 18px rgba(20,40,60,.06)}
+body.light-mode .form-feedback{color:#0b6a9a}
+body.light-mode .back-to-top{background:var(--accent-light)}
 
-nav a:hover {
-color: #00b3ff;
+/* =============== RESPONSIVE =============== */
+@media (max-width: 900px){
+.brand-title{display:none}
+.menu-btn{display:block}
+.main-nav{position:fixed;right:0;top:68px;background:var(--panel-dark);width:220px;height:calc(100% - 68px);flex-direction:column;padding:18px;gap:8px;transform:translateX(100%);transition:transform .28s ease}
+.main-nav a{padding:10px;border-radius:8px}
+.main-nav.open{transform:translateX(0)}
 }
-
-/* ===== HERO ===== */
-.hero {
-background: url("../img/hero.jpg") center/cover no-repeat;
-height: 80vh;
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-color: #fff;
-padding: 0 1rem;
-}
-
-.hero-texto {
-background: rgba(0, 0, 0, 0.6);
-padding: rem;
-border-radius: 15px;
-max-width: 800px;
-}
-
-.btn-principal, .btn-secundario {
-display: inline-block;
-padding: 10px 25px;
-margin-top: 15px;
-border-radius: 8px;
-transition: 0.3s;
-font-weight: bold;
-}
-
-.btn-principal {
-background-color: #00b3ff;
-color: #fff;
-}
-
-.btn-principal:hover {
-background-color: #0094d8;
-}
-
-.btn-secundario {
-border: 2px solid #00b3ff;
-color: #00b3ff;
-}
-
-.btn-secundario:hover {
-background-color: #00b3ff;
-color: #fff;
-}
-
-/* ===== SERVICIOS ===== */
-.servicios {
-text-align: center;
-padding: 4rem 2rem;
-}
-
-.servicios-grid {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 2rem;
-}
-
-.servicio {
-background-color: #1b2733;
-padding: 1.5rem;
-border-radius: 12px;
-width: 280px;
-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-transition: transform 0.3s;
-}
-
-.servicio:hover {
-transform: scale(1.05);
-}
-
-/* ===== SLIDER ===== */
-.slider-container {
-overflow-x: auto;
-scroll-snap-type: x mandatory;
-display: flex;
-justify-content: center;
-padding: 2rem 0;
-scrollbar-width: none;
-}
-
-.slider-container::-webkit-scrollbar {
-display: none;
-}
-
-.slider {
-display: flex;
-gap: 2rem;
-padding: 0 2rem;
-}
-
-.slide {
-flex: 0 0 300px;
-background-color: #1e2b36;
-border-radius: 15px;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-text-align: center;
-padding: 1rem;
-transition: transform 0.4s ease, box-shadow 0.4s ease;
-scroll-snap-align: center;
-}
-
-.slide:hover {
-transform: scale(1.05);
-}
-
-.slide img {
-width: 100%;
-height: 200px;
-object-fit: cover;
-border-radius: 10px;
-margin-bottom: 0.8rem;
-}
-
-/* ===== CONTACTO ===== */
-.contacto {
-text-align: center;
-padding: 4rem 2rem;
-}
-
-/* ===== FOOTER ===== */
-footer {
-background-color: #141c24;
-text-align: center;
-padding: 2rem;
-color: #a0b0c0;
-}
-
-.redes h3 {
-margin-bottom: 1rem;
-}
-
-.iconos-redes {
-display: flex;
-justify-content: center;
-gap: 1.2rem;
-margin-bottom: 1rem;
-}
-
-.icono img {
-width: 35px;
-transition: transform 0.3s;
-}
-
-.icono img:hover {
-transform: scale(1.2);
-}
-
-/* ===== BOTON ROLL BACK ===== */
-#btnTop {
-position: fixed;
-bottom: 30px;
-right: 30px;
-background-color: #00b3ff;
-color: whitesmoke;
-border: none;
-border-radius: 60%;
-width: 45px;
-height: 45px;
-font-size: 20px;
-cursor: pointer;
-display: none;
-transition: background-color 0.3s;
-}
-
-#btnTop:hover {
-background-color: #008dcc;
-}
-
-/* ===== ANIMACIONES ===== */
-.fade-in {
-opacity: 0;
-transition: opacity 1.2s ease-in-out;
-}
-
-.fade-in.visible {
-opacity: 1;
-}
-
-.slide-up {
-transform: translateY(30px);
-opacity: 0;
-transition: transform 1.2s ease, opacity 1.2s ease;
-}
-
-.slide-up.visible {
-transform: translateY(0);
-opacity: 1;
-}
-
-/* ===== MODO CLARO/OSCURO ===== */
-.modo-toggle {
-position: absolute;
-right: 2rem;
-}
-
-.modo-toggle input {
-display: none;
-}
-
-.modo-toggle label {
-cursor: pointer;
-font-size: 1.5rem;
-color: #00b3ff;
-transition: transform 0.5s;
-}
-
-.modo-toggle label:hover {
-transform: rotate(15deg);
-}
-
-/* Estilos modo claro */
-body.light {
-background-color: #f2f4f8;
-color: #1b2733;
-}
-
-body.light header {
-background-color: #ffffff;
-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-body.light nav a {
-color: #333;
-}
-
-body.light .servicio, 
-body.light .slide {
-background-color: #f9fafc;
-color: #222;
-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-body.light .hero-texto {
-background: rgba(255, 255, 255, 0.8);
-color: #1b2733;
-}
-
-body.light .btn-principal {
-background-color: #0078d7;
-}
-
-body.light footer {
-background-color: #e6ebf1;
-color: #333;
-}
-
-body.light #btnTop {
-background-color: #0078d7;
+@media (max-width: 520px){
+.hero h1{font-size:1.5rem}
+.hero p{font-size:.98rem}
+.producto img{height:140px}
 }
